@@ -1,11 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface ContainerProps {
+  isFocused: boolean;
+}
 
 export const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.colors['base-post']};
   position: fixed;
   display: flex;
   height: 80px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   top: 0;
   width: 100%;
@@ -17,7 +21,6 @@ export const HeaderContainer = styled.header`
     a {
       display: flex;
       align-items: center;
-      margin-right: 36px;
     }
   }
 
@@ -26,12 +29,25 @@ export const HeaderContainer = styled.header`
   }
 
   @media (max-width: 80rem) {
-    padding: 0 2rem;
+    padding: 0 1rem;
+    > div {
+      a {
+        margin-right: 20px;
+      }
+    }
   }
 `;
 
-export const SearchInput = styled.div`
-  width: calc(100% - 500px);
+export const BookSearchInput = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+`;
+
+export const SearchInput = styled.div<ContainerProps>`
+  width: 100%;
+  max-width: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,10 +56,25 @@ export const SearchInput = styled.div`
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors['base-border']};
 
+  svg {
+    margin-right: 1rem;
+  }
+
+  ${props =>
+    props.isFocused &&
+    css`
+      color: ${({ theme }) => theme.colors['brand-blue']};
+      border-color: ${({ theme }) => theme.colors['brand-blue']};
+    `};
+
   input {
     width: 100%;
     border: 0;
     background: ${({ theme }) => theme.colors['base-input']};
     color: ${({ theme }) => theme.colors['base-text']};
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors['base-label']};
+    }
   }
 `;

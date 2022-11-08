@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
+import firaCode from '../assets/fonts/FiraCode-Regular.ttf';
 
 export const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'FiraCode';
+    src: url(${firaCode}) format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
  
   * {
     margin: 0;
@@ -30,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font: 400 ${({ theme }) =>
+    font: 500 ${({ theme }) =>
       theme.textSizes['text-text-m']} 'Nunito', sans-serif;
       line-height: 160%;
   }
