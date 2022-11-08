@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-
+ 
   * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     outline: none;
 
     ::-webkit-scrollbar {
-      width: 0.45rem;
+      width: 0.875rem;
     }
 
     ::-webkit-scrollbar-track {
@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     height: 2000px;
-    background: '#ffff';
+    background: ${({ theme }) => theme.colors['base-background']};
     color: ${({ theme }) => theme.colors['base-text']};
     -webkit-font-smoothing: antialiased;
   }

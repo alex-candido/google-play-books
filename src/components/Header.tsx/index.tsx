@@ -1,13 +1,21 @@
 import { MagnifyingGlass } from 'phosphor-react';
 import React from 'react';
-import { HeaderContainer } from './styles';
+import playBooksLogoImg from '../../assets/play-books-logo.png';
+import { HeaderContainer, SearchInput } from './styles';
 
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <div className="container">
-        <input />
-        <MagnifyingGlass size={32} />
+        <div>
+          <a href="/">
+            <img src={playBooksLogoImg} alt="playBooksLogoImg" />
+          </a>
+        </div>
+        <SearchInput>
+          <input type="text" placeholder="Pesquisar livros" />
+          <MagnifyingGlass size={25} />
+        </SearchInput>
       </div>
     </HeaderContainer>
   );
