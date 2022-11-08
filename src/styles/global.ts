@@ -21,4 +21,30 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 999px;
     }
   }
+
+  body {
+    height: 2000px;
+    background: '#ffff';
+    color: ${({ theme }) => theme.colors['base-text']};
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body, input, textarea, button {
+    font: 400 ${({ theme }) =>
+      theme.textSizes['text-text-m']} 'Nunito', sans-serif;
+      line-height: 160%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
 `;
