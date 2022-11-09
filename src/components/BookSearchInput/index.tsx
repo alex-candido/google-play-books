@@ -28,9 +28,9 @@ const BookSearchInput: React.FC<BookSearchInputProps> = ({
       <SearchInput isFocused={isFocused}>
         <MagnifyingGlass size={20} />
         <input
+          type="text"
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          type="text"
           placeholder="Pesquisar livros"
           value={search}
           onChange={event => setSearch(event.target.value)}

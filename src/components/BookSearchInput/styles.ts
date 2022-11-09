@@ -21,6 +21,8 @@ export const SearchInput = styled.div<ContainerProps>`
   background: ${({ theme }) => theme.colors['base-input']};
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors['base-border']};
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
 
   svg {
     margin-right: 1rem;

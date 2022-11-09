@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
     font: 500 ${({ theme }) =>
       theme.textSizes['title-title-s']} 'Poppins', sans-serif;
       line-height: 160%;
+      border: none;
   }
 
   ul {

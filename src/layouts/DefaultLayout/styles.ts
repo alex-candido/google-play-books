@@ -5,11 +5,12 @@ export const DefaultLayoutContainer = styled.div`
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
+    border: 0;
   }
 
   > main {
     @media (max-width: 80rem) {
-      padding: 0 1rem;
+      padding: 0 2rem;
     }
   }
 `;
