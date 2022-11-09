@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { BookSearchInputContainer, SearchInput } from './styles';
 
 const BookSearchInput: React.FC = () => {
+  const [search, setSearch] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputFocus = useCallback(() => {
@@ -21,6 +22,8 @@ const BookSearchInput: React.FC = () => {
           onBlur={handleInputBlur}
           type="text"
           placeholder="Pesquisar livros"
+          value={search}
+          onChange={event => setSearch(event.target.value)}
         />
       </SearchInput>
     </BookSearchInputContainer>

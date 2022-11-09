@@ -5,7 +5,7 @@ export const ButtonContainer = styled.button`
   height: 56px;
   border-radius: 10px;
   border: 0;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   color: ${({ theme }) => theme.colors['base-title']};
   text-align: center;
   font-weight: 600;
