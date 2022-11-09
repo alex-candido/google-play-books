@@ -1,9 +1,18 @@
 import { MagnifyingGlass } from 'phosphor-react';
-import React, { useCallback, useState } from 'react';
+import React, { Dispatch, useCallback, useState } from 'react';
 import { BookSearchInputContainer, SearchInput } from './styles';
 
-const BookSearchInput: React.FC = () => {
-  const [search, setSearch] = useState('');
+interface BookSearchInputProps {
+  search: string;
+  setSearch: Dispatch<React.SetStateAction<string>>;
+  searchBook: () => void;
+}
+
+const BookSearchInput: React.FC<BookSearchInputProps> = ({
+  search,
+  setSearch,
+  searchBook,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputFocus = useCallback(() => {
@@ -13,6 +22,7 @@ const BookSearchInput: React.FC = () => {
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
   }, []);
+
   return (
     <BookSearchInputContainer>
       <SearchInput isFocused={isFocused}>
@@ -24,6 +34,7 @@ const BookSearchInput: React.FC = () => {
           placeholder="Pesquisar livros"
           value={search}
           onChange={event => setSearch(event.target.value)}
+          // onKeyDown={searchBook}
         />
       </SearchInput>
     </BookSearchInputContainer>

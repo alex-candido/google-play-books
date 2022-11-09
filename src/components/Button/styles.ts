@@ -4,7 +4,6 @@ export const ButtonContainer = styled.button`
   background: ${({ theme }) => theme.colors['brand-blue']};
   height: 56px;
   border-radius: 10px;
-  border: 0;
   padding: 0.75rem 1.5rem;
   color: ${({ theme }) => theme.colors['base-title']};
   text-align: center;

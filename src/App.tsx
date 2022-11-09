@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { BooksContextProvider } from './contexts/BooksContext';
 import Router from './routes';
 import { GlobalStyles } from './styles/global';
 import { defaultTheme } from './styles/theme/defaultTheme';
@@ -10,7 +11,9 @@ const App: React.FC = () => {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
       <BrowserRouter>
-        <Router />
+        <BooksContextProvider>
+          <Router />
+        </BooksContextProvider>
       </BrowserRouter>
     </ThemeProvider>
   );
