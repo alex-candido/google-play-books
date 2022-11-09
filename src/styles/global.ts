@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body, input, textarea, button {
     font: 500 ${({ theme }) =>
-      theme.textSizes['text-text-m']} 'Nunito', sans-serif;
+      theme.textSizes['title-title-s']} 'Poppins', sans-serif;
       line-height: 160%;
   }
 
