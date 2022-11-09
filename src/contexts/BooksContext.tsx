@@ -1,10 +1,16 @@
-import React, { Dispatch, ReactNode, useState } from 'react';
+import React, { Dispatch, FormEvent, ReactNode, useState } from 'react';
 import { api } from '../services/api';
+
+// interface IBooks {
+
+// }
 
 interface BooksContextType {
   searchBook: () => void;
   search: string;
   setSearch: Dispatch<React.SetStateAction<string>>;
+  handleSearchBook: (event: FormEvent<HTMLFormElement>) => void;
+  // bookData: IBooks[];
 }
 
 interface BooksContextProviderProps {
@@ -27,8 +33,17 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
     setBookData(response.data.items);
   }
 
+  function handleSearchBook(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    searchBook();
+  }
+
+  console.log(bookData);
+
   return (
-    <BooksContext.Provider value={{ searchBook, search, setSearch }}>
+    <BooksContext.Provider
+      value={{ searchBook, search, setSearch, handleSearchBook }}
+    >
       {children}
     </BooksContext.Provider>
   );

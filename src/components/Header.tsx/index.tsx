@@ -6,11 +6,11 @@ import LogoHeader from '../LogoHeader';
 import { HeaderContainer } from './styles';
 
 const Header: React.FC = () => {
-  const { searchBook, search, setSearch } = useBooks();
+  const { searchBook, search, setSearch, handleSearchBook } = useBooks();
 
   return (
     <HeaderContainer>
-      <div className="container">
+      <form className="container" onSubmit={handleSearchBook}>
         <LogoHeader />
         <BookSearchInput
           search={search}
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           searchBook={searchBook}
         />
         <Button searchBook={searchBook} />
-      </div>
+      </form>
     </HeaderContainer>
   );
 };

@@ -34,7 +34,7 @@ const BookSearchInput: React.FC<BookSearchInputProps> = ({
           placeholder="Pesquisar livros"
           value={search}
           onChange={event => setSearch(event.target.value)}
-          // onKeyDown={searchBook}
+          onKeyDown={searchBook}
         />
       </SearchInput>
     </BookSearchInputContainer>

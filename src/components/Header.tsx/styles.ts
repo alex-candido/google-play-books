@@ -12,7 +12,7 @@ export const HeaderContainer = styled.header`
   z-index: 2000;
   /* border-bottom: 0.5px solid ${({ theme }) => theme.colors['brand-blue']}; */
 
-  > div {
+  form {
     display: flex;
   }
 
