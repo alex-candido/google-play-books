@@ -6,6 +6,7 @@ export interface IBooks {
     thumbnail: string;
     smallThumbnail: string;
   };
+  previewLink: string;
   title: string;
   authors: string[];
   publisher: string;

@@ -1,5 +1,9 @@
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import noImg from '../../../../assets/no-image.png';
+import ExternalLink from '../../../../components/ExternalLink';
 import DetailsHeaderItem from '../DetailsHeaderItem';
 import { DetailsHeaderContainer, PositionImg } from './styles';
 
@@ -7,6 +11,7 @@ export interface DetailsHeaderProps {
   id: string;
   searchInfo: string;
   image: string;
+  previewLink: string;
   title: string;
   authors: string;
   publisher: string;
@@ -24,8 +29,25 @@ export interface BookDetailsHeaderProps {
 const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
   const d = book.publishedDate;
   const [ano] = d.split('-');
+  const navigate = useNavigate();
+
+  function goBack() {
+    navigate('/');
+  }
+
   return (
     <DetailsHeaderContainer>
+      <header>
+        <ExternalLink
+          as="button"
+          onClick={goBack}
+          icon={<FontAwesomeIcon icon={faChevronLeft} />}
+          text="Voltar"
+          variant="iconLeft"
+          href=""
+        />
+        <ExternalLink text="Preview" href={book.previewLink} target="_blank" />
+      </header>
       {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
       <div>
         <PositionImg>

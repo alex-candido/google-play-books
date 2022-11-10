@@ -5,7 +5,6 @@ export const BookDetailsContainer = styled.section`
   margin-bottom: 10rem;
 
   > div {
-    justify-content: center;
     max-width: 54rem;
     width: 100%;
     margin: 0 auto;

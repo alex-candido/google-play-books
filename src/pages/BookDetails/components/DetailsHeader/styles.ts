@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const DetailsHeaderContainer = styled.div`
   width: 100%;
-  /* min-height: 10.5rem; */
   margin-top: -5.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -13,6 +12,14 @@ export const DetailsHeaderContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   overflow: hidden;
+
+  header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
 
   h1 {
     border-bottom: 2px solid ${({ theme }) => theme.colors['base-post']};
@@ -28,7 +35,6 @@ export const DetailsHeaderContainer = styled.div`
     > div {
       @media (max-width: 700px) {
         display: flex;
-        justify-content: center;
       }
 
       flex-wrap: wrap;
