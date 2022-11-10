@@ -8,7 +8,6 @@ export const ButtonContainer = styled.button`
   color: ${({ theme }) => theme.colors['base-title']};
   text-align: center;
   font-size: ${({ theme }) => theme.textSizes['title-title-s']};
-  color: ${({ theme }) => theme.colors['base-title']};
   font-weight: 600;
   transition: background-color 0.2s;
   margin-left: 20px;

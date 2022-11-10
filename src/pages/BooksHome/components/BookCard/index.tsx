@@ -1,4 +1,5 @@
 import React from 'react';
+import noImg from '../../../../assets/no-image.png';
 import { IBooks } from '../../../../contexts/BooksContext';
 import { BookCardContainer, PositionImg } from './styles';
 
@@ -11,7 +12,11 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
   return (
     <BookCardContainer to="/">
       <PositionImg>
-        <img src={imageBook} alt="Nada" />
+        {imageBook ? (
+          <img src={imageBook} alt="" />
+        ) : (
+          <img src={noImg} alt="" />
+        )}
       </PositionImg>
       <div>
         <strong>{book.title}</strong>

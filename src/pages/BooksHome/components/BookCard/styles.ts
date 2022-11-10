@@ -43,9 +43,13 @@ export const PositionImg = styled.div`
   align-items: center;
 
   img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 10px;
     border: 2px solid ${({ theme }) => theme.colors['base-post']};
     height: 100%;
+    max-width: 150px;
     &:hover {
       border-color: ${({ theme }) => theme.colors['brand-blue']};
     }

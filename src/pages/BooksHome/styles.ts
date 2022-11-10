@@ -5,6 +5,7 @@ export const HomeContainer = styled.section`
 `;
 
 export const BookListContainer = styled.div`
+  height: 100%;
   width: 100%;
   flex-wrap: wrap;
   padding-top: 3rem;

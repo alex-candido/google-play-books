@@ -10,7 +10,7 @@ export const defaultTheme = {
     'base-text': '#AFC2D4',
     'base-subtitle': '#C4D4E3',
     'base-title': '#E7EDF4',
-    'brand-blue-white': '#88deff',
+    'brand-blue-white': '#11bdff',
     'brand-blue': '#00acee',
   },
   textSizes: {
