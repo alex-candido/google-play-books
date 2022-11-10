@@ -9,7 +9,7 @@ export interface IBooks {
   title: string;
   authors: string[];
   publisher: string;
-  publishedDate: Date;
+  publishedDate: string;
   pageCount: number;
   description: string;
 }
@@ -37,6 +37,7 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
   children,
 }) => {
   const [search, setSearch] = useState('');
+  // const [bookDetails, setBookDetails] = useState('');
   const [bookData, setBookData] = useState([]);
 
   async function searchBook() {
@@ -47,6 +48,21 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
     setBookData(response.data.items);
     console.log(response.data.items);
   }
+
+  // async function getBookDetails(id: string) {
+  //   const response = await api.get(
+  //     `/books/v1/volumes/${id}?&key=AIzaSyDKEPLS_DBkW3OeAK1QmvvYlnp5v0PmFQI`,
+  //   );
+
+  //   setBookDetails(response.data);
+  // }
+
+  // React.useEffect(() => {
+  //   const id = 'GgQmDwAAQBAJ';
+  //   getBookDetails(id);
+  // }, [getBookDetails]);
+
+  // console.log(bookDetails);
 
   function handleSearchBook(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

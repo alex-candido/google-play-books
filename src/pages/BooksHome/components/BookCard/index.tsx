@@ -10,8 +10,17 @@ interface IBooksProps {
 const BookCard: React.FC<IBooksProps> = ({ book }) => {
   const imageBook =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
+
+  const bookDetails = {
+    id: book.id,
+    image: imageBook,
+    title: book.volumeInfo.title,
+    authors: book.volumeInfo.authors,
+    description: book.volumeInfo.description,
+  };
+
   return (
-    <BookCardContainer to={`/book/${book.id}`}>
+    <BookCardContainer to={`/book/${book.id}`} state={{ details: bookDetails }}>
       <PositionImg>
         {imageBook ? (
           <img src={imageBook} alt={book.volumeInfo.title} />

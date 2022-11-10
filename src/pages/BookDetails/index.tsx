@@ -1,29 +1,53 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import noImg from '../../assets/no-image.png';
 import { BookDetailsContainer, DetailsContainer, PositionImg } from './styles';
 
+export interface IBooks {
+  imageLinks: {
+    thumbnail: string;
+    smallThumbnail: string;
+  };
+  title: string;
+  authors: string[];
+  publisher: string;
+  publishedDate: Date;
+  pageCount: number;
+  description: string;
+}
+
+export interface Details {
+  id: string;
+  volumeInfo: IBooks;
+}
+
 const BookDetails: React.FC = () => {
-  const { id } = useParams();
+  // const { bookDetail } = useParams();
+  // const {  } = useBooks();
+  // console.log(id);
+
+  const location = useLocation();
+  const book = location.state.details;
 
   return (
     <BookDetailsContainer>
       <div className="container">
         <DetailsContainer>
           <PositionImg>
-            {/* {imageBook ? (
-              <img src={imageBook} alt={book.volumeInfo.title} />
+            {book.image ? (
+              <img src={book.image} alt={book.title} />
             ) : (
-              <img src={noImg} alt={book.volumeInfo.title} />
-            )} */}
+              <img src={noImg} alt={book.title} />
+            )}
           </PositionImg>
           <div>
-            <h1>O Filho: uma história da série Divergente</h1>
+            {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
             <strong>Autor</strong>
-            <span>Veronica Roth</span>
+            <span>{book.authors}</span>
             <strong>Editora</strong>
-            <span>Editora Rocco</span>
+            <span>{book.publisher}</span>
             <strong>Publicado em</strong>
-            <span>2014</span>
+            <span>{book.publisher}</span>
             <strong>Páginas</strong>
             <span>65</span>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
