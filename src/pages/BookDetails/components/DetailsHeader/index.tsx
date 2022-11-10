@@ -10,6 +10,7 @@ interface DetailsHeaderProps {
   authors: string;
   publisher: string;
   categories: string;
+  language: string;
   publishedDate: string;
   pageCount: string;
   description: string;
@@ -22,21 +23,53 @@ interface BookDetailsHeaderProps {
 const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
   return (
     <DetailsHeaderContainer>
-      <PositionImg>
-        {book.image ? (
-          <img src={book.image} alt={book.title} />
-        ) : (
-          <img src={noImg} alt={book.title} />
-        )}
-      </PositionImg>
+      {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
       <div>
-        {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
-
-        <DetailsHeaderItem detailTitle="Autor" detail={book.authors} />
-        <DetailsHeaderItem detailTitle="Editora" detail={book.publisher} />
-        <DetailsHeaderItem detailTitle="Categorias" detail={book.categories} />
-        <DetailsHeaderItem detailTitle="Publicado em" detail={book.publisher} />
-        <DetailsHeaderItem detailTitle="Páginas" detail={book.pageCount} />
+        <PositionImg>
+          {book.image ? (
+            <img src={book.image} alt={book.title} />
+          ) : (
+            <img src={noImg} alt={book.title} />
+          )}
+        </PositionImg>
+        <div>
+          {book.authors ? (
+            <DetailsHeaderItem detailTitle="Autor" detail={book.authors} />
+          ) : (
+            <DetailsHeaderItem detailTitle="Autor" detail="authors" />
+          )}
+          {book.publisher ? (
+            <DetailsHeaderItem detailTitle="Editora" detail={book.publisher} />
+          ) : (
+            <DetailsHeaderItem detailTitle="Editora" detail="publisher" />
+          )}
+          {book.categories ? (
+            <DetailsHeaderItem
+              detailTitle="Categorias"
+              detail={book.categories}
+            />
+          ) : (
+            <DetailsHeaderItem detailTitle="Categorias" detail="categories" />
+          )}
+          {book.language ? (
+            <DetailsHeaderItem detailTitle="Idioma" detail={book.language} />
+          ) : (
+            <DetailsHeaderItem detailTitle="Idioma" detail="language" />
+          )}
+          {book.publisher ? (
+            <DetailsHeaderItem
+              detailTitle="Publicado em"
+              detail={book.publisher}
+            />
+          ) : (
+            <DetailsHeaderItem detailTitle="Publicado em" detail="publisher" />
+          )}
+          {book.pageCount ? (
+            <DetailsHeaderItem detailTitle="Páginas" detail={book.pageCount} />
+          ) : (
+            <DetailsHeaderItem detailTitle="Páginas" detail="pageCount" />
+          )}
+        </div>
       </div>
     </DetailsHeaderContainer>
   );

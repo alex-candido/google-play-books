@@ -11,25 +11,16 @@ export const DetailsHeaderContainer = styled.div`
   border: 2px solid ${({ theme }) => theme.colors['base-post']};
   padding: 2rem;
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors['brand-blue']};
   }
 
-  strong {
-    flex: 1;
-    font-size: ${({ theme }) => theme.textSizes['title-title-s']};
-    color: ${({ theme }) => theme.colors['base-title']};
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors['brand-blue']};
-    }
+  > div {
+    display: flex;
+    gap: 2rem;
   }
 
   p {
@@ -43,7 +34,7 @@ export const DetailsHeaderContainer = styled.div`
 
 export const PositionImg = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
 
   img {
     height: 230px;

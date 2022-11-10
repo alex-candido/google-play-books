@@ -10,6 +10,7 @@ export interface IBooks {
   authors: string[];
   publisher: string;
   categories: string[];
+  language: string;
   publishedDate: string;
   pageCount: number;
   description: string;
