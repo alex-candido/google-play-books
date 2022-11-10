@@ -10,12 +10,7 @@ const DetailsContent: React.FC<DetailsContentProps> = ({ content }) => {
   return (
     <DetailsContentContainer>
       <strong>{content.searchInfo}</strong>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nemo,
-        quae labore commodi in eveniet perspiciatis dicta mollitia veritatis
-        amet veniam maxime omnis accusantium? Officia aliquam eveniet impedit
-        veritatis eos?
-      </p>
+      <p>{content.description}</p>
     </DetailsContentContainer>
   );
 };

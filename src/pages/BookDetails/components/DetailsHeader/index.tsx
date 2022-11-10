@@ -81,7 +81,7 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           ) : (
             <DetailsHeaderItem detailTitle="Idioma" detail="language" />
           )}
-          {book.publisher ? (
+          {ano ? (
             <DetailsHeaderItem detailTitle="Publicado em" detail={ano} />
           ) : (
             <DetailsHeaderItem detailTitle="Publicado em" detail="publisher" />

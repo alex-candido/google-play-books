@@ -10,7 +10,7 @@ export const DetailsHeaderContainer = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   overflow: hidden;
 
   header {
@@ -22,6 +22,7 @@ export const DetailsHeaderContainer = styled.div`
   }
 
   h1 {
+    color: ${({ theme }) => theme.colors['base-title']};
     border-bottom: 2px solid ${({ theme }) => theme.colors['base-post']};
     border-color: ${({ theme }) => theme.colors['brand-blue']};
     padding-bottom: 1rem;
@@ -50,7 +51,7 @@ export const DetailsHeaderContainer = styled.div`
 
     > div {
       display: flex;
-      gap: 2rem;
+      column-gap: 1rem;
       flex-wrap: wrap;
       max-width: 30rem;
     }

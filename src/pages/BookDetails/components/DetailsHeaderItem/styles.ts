@@ -4,7 +4,6 @@ export const HeaderItemContainer = styled.div`
   strong {
     flex: 1;
     font-size: ${({ theme }) => theme.textSizes['title-title-s']};
-    color: ${({ theme }) => theme.colors['base-title']};
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
