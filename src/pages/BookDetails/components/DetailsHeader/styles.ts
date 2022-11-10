@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const DetailsHeaderContainer = styled.div`
   width: 100%;
-  max-width: 54rem;
   /* min-height: 10.5rem; */
   margin-top: -5.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
@@ -12,15 +11,43 @@ export const DetailsHeaderContainer = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  overflow: hidden;
+
+  h1 {
+    border-bottom: 2px solid ${({ theme }) => theme.colors['base-post']};
+    border-color: ${({ theme }) => theme.colors['brand-blue']};
+    padding-bottom: 1rem;
+  }
 
   &:hover {
     border-color: ${({ theme }) => theme.colors['brand-blue']};
   }
 
+  @media (max-width: 688px) {
+    > div {
+      @media (max-width: 700px) {
+        display: flex;
+        justify-content: center;
+      }
+
+      flex-wrap: wrap;
+      > div {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
   > div {
     display: flex;
     gap: 2rem;
+
+    > div {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 30rem;
+    }
   }
 
   p {

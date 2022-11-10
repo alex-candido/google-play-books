@@ -21,6 +21,8 @@ interface BookDetailsHeaderProps {
 }
 
 const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
+  const d = book.publishedDate;
+  const [ano] = d.split('-');
   return (
     <DetailsHeaderContainer>
       {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
@@ -57,10 +59,7 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
             <DetailsHeaderItem detailTitle="Idioma" detail="language" />
           )}
           {book.publisher ? (
-            <DetailsHeaderItem
-              detailTitle="Publicado em"
-              detail={book.publisher}
-            />
+            <DetailsHeaderItem detailTitle="Publicado em" detail={ano} />
           ) : (
             <DetailsHeaderItem detailTitle="Publicado em" detail="publisher" />
           )}
