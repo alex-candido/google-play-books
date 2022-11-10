@@ -11,6 +11,7 @@ export const BookCardContainer = styled(Link)`
   border: 2px solid ${({ theme }) => theme.colors['base-post']};
   background: ${({ theme }) => theme.colors['base-post']};
   padding: 1.5rem;
+  overflow: hidden;
   transition: all 0.4s ease 0s;
 
   &:hover {

@@ -1,19 +1,21 @@
 import React from 'react';
+import { IBooks } from '../../../../contexts/BooksContext';
 import { BookCardContainer, PositionImg } from './styles';
 
-const BookCard: React.FC = () => {
+interface IBooksProps {
+  book: IBooks;
+}
+
+const BookCard: React.FC<IBooksProps> = ({ book }) => {
+  const imageBook = book.imageLinks && book.imageLinks.smallThumbnail;
   return (
     <BookCardContainer to="/">
       <PositionImg>
-        <img
-          src="https://books.google.com/books/content?id=GgQmDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-          alt="Nada"
-        />
+        <img src={imageBook} alt="Nada" />
       </PositionImg>
       <div>
-        <strong>O universo de Harry Potter de A a Z</strong>
-        <h4>Aubrey Malone</h4>
-        <h4>2014</h4>
+        <strong>{book.title}</strong>
+        <h4>{book.authors}</h4>
         <p>
           O universo de Harry Potter de A a Z permite reviver as recordações que
           marcaram a infância de muita gente, trazendo ainda curiosidades sobre

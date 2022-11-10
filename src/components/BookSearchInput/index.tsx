@@ -5,13 +5,13 @@ import { BookSearchInputContainer, SearchInput } from './styles';
 interface BookSearchInputProps {
   search: string;
   setSearch: Dispatch<React.SetStateAction<string>>;
-  searchBook: () => void;
+  // searchBook: () => void;
 }
 
 const BookSearchInput: React.FC<BookSearchInputProps> = ({
   search,
   setSearch,
-  searchBook,
+  // searchBook,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -34,7 +34,7 @@ const BookSearchInput: React.FC<BookSearchInputProps> = ({
           placeholder="Pesquisar livros"
           value={search}
           onChange={event => setSearch(event.target.value)}
-          onKeyDown={searchBook}
+          // onKeyDown={searchBook}
         />
       </SearchInput>
     </BookSearchInputContainer>
