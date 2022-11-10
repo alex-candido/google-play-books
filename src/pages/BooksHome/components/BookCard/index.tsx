@@ -20,10 +20,21 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
         )}
       </PositionImg>
       <div>
-        <strong>{book.volumeInfo.title}</strong>
-        <h4>{book.volumeInfo.authors}</h4>
-        <h4>{}</h4>
-        <p>{book.volumeInfo.description}</p>
+        {book.volumeInfo.title ? (
+          <strong>{book.volumeInfo.title}</strong>
+        ) : (
+          <strong>Title</strong>
+        )}
+        {book.volumeInfo.authors ? (
+          <h4>{book.volumeInfo.authors}</h4>
+        ) : (
+          <h4>Author</h4>
+        )}
+        {book.volumeInfo.description ? (
+          <p>{book.volumeInfo.description}</p>
+        ) : (
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        )}
       </div>
     </BookCardContainer>
   );
