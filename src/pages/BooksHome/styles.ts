@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.section`
   margin-top: 80px;
+  margin-bottom: 10rem;
 `;
 
 export const BookListContainer = styled.div`
@@ -12,5 +13,4 @@ export const BookListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 2rem;
-  margin-bottom: 14rem;
 `;

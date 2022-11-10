@@ -14,7 +14,8 @@ export interface IBooks {
   description: string;
 }
 
-interface Volume {
+export interface Volume {
+  id: string;
   volumeInfo: IBooks;
 }
 
@@ -43,8 +44,8 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
       `/books/v1/volumes?q=${search}&key=AIzaSyDKEPLS_DBkW3OeAK1QmvvYlnp5v0PmFQI` +
         `&maxResults=40`,
     );
-
     setBookData(response.data.items);
+    console.log(response.data.items);
   }
 
   function handleSearchBook(event: FormEvent<HTMLFormElement>) {

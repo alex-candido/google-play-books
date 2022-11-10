@@ -24,6 +24,10 @@ export const SearchInput = styled.div<ContainerProps>`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   transition: 0.4s;
 
+  &:hover {
+    border-color: ${({ theme }) => theme.colors['brand-blue']};
+  }
+
   svg {
     margin-right: 1rem;
   }

@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
+    height: 100%;
     background: ${({ theme }) => theme.colors['base-background']};
     color: ${({ theme }) => theme.colors['base-text']};
     -webkit-font-smoothing: antialiased;

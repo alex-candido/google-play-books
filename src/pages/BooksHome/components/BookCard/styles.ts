@@ -27,6 +27,10 @@ export const BookCardContainer = styled(Link)`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors['brand-blue']};
+    }
   }
 
   p {

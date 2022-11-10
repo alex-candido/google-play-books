@@ -1,31 +1,29 @@
 import React from 'react';
 import noImg from '../../../../assets/no-image.png';
-import { IBooks } from '../../../../contexts/BooksContext';
+import { Volume } from '../../../../contexts/BooksContext';
 import { BookCardContainer, PositionImg } from './styles';
 
 interface IBooksProps {
-  book: IBooks;
+  book: Volume;
 }
 
 const BookCard: React.FC<IBooksProps> = ({ book }) => {
-  const imageBook = book.imageLinks && book.imageLinks.smallThumbnail;
+  const imageBook =
+    book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
   return (
-    <BookCardContainer to="/">
+    <BookCardContainer to={`/book/${book.id}`}>
       <PositionImg>
         {imageBook ? (
-          <img src={imageBook} alt="" />
+          <img src={imageBook} alt={book.volumeInfo.title} />
         ) : (
-          <img src={noImg} alt="" />
+          <img src={noImg} alt={book.volumeInfo.title} />
         )}
       </PositionImg>
       <div>
-        <strong>{book.title}</strong>
-        <h4>{book.authors}</h4>
-        <p>
-          O universo de Harry Potter de A a Z permite reviver as recordações que
-          marcaram a infância de muita gente, trazendo ainda curiosidades sobre
-          a vida...
-        </p>
+        <strong>{book.volumeInfo.title}</strong>
+        <h4>{book.volumeInfo.authors}</h4>
+        <h4>{}</h4>
+        <p>{book.volumeInfo.description}</p>
       </div>
     </BookCardContainer>
   );
