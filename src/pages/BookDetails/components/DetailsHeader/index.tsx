@@ -1,13 +1,17 @@
 import React from 'react';
 import noImg from '../../../../assets/no-image.png';
+import DetailsHeaderItem from '../DetailsHeaderItem';
 import { DetailsHeaderContainer, PositionImg } from './styles';
 
 interface DetailsHeaderProps {
   id: string;
   image: string;
   title: string;
-  publisher: string;
   authors: string;
+  publisher: string;
+  categories: string;
+  publishedDate: string;
+  pageCount: string;
   description: string;
 }
 
@@ -27,14 +31,12 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
       </PositionImg>
       <div>
         {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
-        <strong>Autor</strong>
-        <span>{book.authors}</span>
-        <strong>Editora</strong>
-        <span>{book.publisher}</span>
-        <strong>Publicado em</strong>
-        <span>{book.publisher}</span>
-        <strong>Páginas</strong>
-        <span>65</span>
+
+        <DetailsHeaderItem detailTitle="Autor" detail={book.authors} />
+        <DetailsHeaderItem detailTitle="Editora" detail={book.publisher} />
+        <DetailsHeaderItem detailTitle="Categorias" detail={book.categories} />
+        <DetailsHeaderItem detailTitle="Publicado em" detail={book.publisher} />
+        <DetailsHeaderItem detailTitle="Páginas" detail={book.pageCount} />
       </div>
     </DetailsHeaderContainer>
   );

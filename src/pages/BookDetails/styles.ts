@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const BookDetailsContainer = styled.section`
   margin-top: 12rem;
   margin-bottom: 10rem;
+
+  > div {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const DetailsContent = styled.div`

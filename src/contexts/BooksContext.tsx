@@ -9,6 +9,7 @@ export interface IBooks {
   title: string;
   authors: string[];
   publisher: string;
+  categories: string[];
   publishedDate: string;
   pageCount: number;
   description: string;
@@ -61,7 +62,7 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
   //   getBookDetails(id);
   // }, [getBookDetails]);
 
-  // console.log(bookDetails);
+  console.log(bookData);
 
   function handleSearchBook(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

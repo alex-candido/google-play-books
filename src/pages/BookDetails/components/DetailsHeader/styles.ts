@@ -2,14 +2,43 @@ import styled from 'styled-components';
 
 export const DetailsHeaderContainer = styled.div`
   width: 100%;
-  min-height: 10.5rem;
+  max-width: 54rem;
+  /* min-height: 10.5rem; */
   margin-top: -5.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  border: 2px solid ${({ theme }) => theme.colors['base-post']};
   padding: 2rem;
   display: flex;
-  flex-direction: column;
+  gap: 2rem;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors['brand-blue']};
+  }
+
+  strong {
+    flex: 1;
+    font-size: ${({ theme }) => theme.textSizes['title-title-s']};
+    color: ${({ theme }) => theme.colors['base-title']};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors['brand-blue']};
+    }
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 `;
 
 export const PositionImg = styled.div`
@@ -17,12 +46,12 @@ export const PositionImg = styled.div`
   align-items: center;
 
   img {
+    height: 230px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     border-radius: 10px;
     border: 2px solid ${({ theme }) => theme.colors['base-post']};
-    height: 100%;
     max-width: 150px;
     &:hover {
       border-color: ${({ theme }) => theme.colors['brand-blue']};

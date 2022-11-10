@@ -15,8 +15,11 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
     id: book.id,
     image: imageBook,
     title: book.volumeInfo.title,
-    publisher: book.volumeInfo.publisher,
     authors: book.volumeInfo.authors,
+    publisher: book.volumeInfo.publisher,
+    categories: book.volumeInfo.categories,
+    publishedDate: book.volumeInfo.publishedDate,
+    pageCount: book.volumeInfo.pageCount,
     description: book.volumeInfo.description,
   };
 
