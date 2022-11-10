@@ -46,7 +46,6 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
         `&maxResults=40`,
     );
     setBookData(response.data.items);
-    console.log(response.data.items);
   }
 
   // async function getBookDetails(id: string) {
