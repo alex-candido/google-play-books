@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const LogoHeaderContainer = styled.div`
   display: flex;
-
-  a {
+  cursor: pointer;
+  > div {
     display: flex;
     align-items: center;
   }

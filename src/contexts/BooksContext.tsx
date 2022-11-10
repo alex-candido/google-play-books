@@ -6,16 +6,22 @@ export interface IBooks {
     thumbnail: string;
     smallThumbnail: string;
   };
+  previewLink: string;
   title: string;
   authors: string[];
   publisher: string;
-  publishedDate: Date;
+  categories: string[];
+  language: string;
+  publishedDate: string;
   pageCount: number;
   description: string;
 }
 
 export interface Volume {
   id: string;
+  searchInfo?: {
+    textSnippet?: string;
+  };
   volumeInfo: IBooks;
 }
 
@@ -37,6 +43,7 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
   children,
 }) => {
   const [search, setSearch] = useState('');
+  // const [bookDetails, setBookDetails] = useState('');
   const [bookData, setBookData] = useState([]);
 
   async function searchBook() {
@@ -45,8 +52,22 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
         `&maxResults=40`,
     );
     setBookData(response.data.items);
-    console.log(response.data.items);
   }
+
+  // async function getBookDetails(id: string) {
+  //   const response = await api.get(
+  //     `/books/v1/volumes/${id}?&key=AIzaSyDKEPLS_DBkW3OeAK1QmvvYlnp5v0PmFQI`,
+  //   );
+
+  //   setBookDetails(response.data);
+  // }
+
+  // React.useEffect(() => {
+  //   const id = 'GgQmDwAAQBAJ';
+  //   getBookDetails(id);
+  // }, [getBookDetails]);
+
+  console.log(bookData);
 
   function handleSearchBook(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

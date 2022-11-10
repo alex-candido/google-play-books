@@ -10,8 +10,24 @@ interface IBooksProps {
 const BookCard: React.FC<IBooksProps> = ({ book }) => {
   const imageBook =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
+
+  const bookDetails = {
+    id: book.id,
+    searchInfo: book.searchInfo?.textSnippet,
+    image: imageBook,
+    previewLink: book.volumeInfo.previewLink,
+    title: book.volumeInfo.title,
+    authors: book.volumeInfo.authors,
+    publisher: book.volumeInfo.publisher,
+    categories: book.volumeInfo.categories,
+    language: book.volumeInfo.language,
+    publishedDate: book.volumeInfo.publishedDate,
+    pageCount: book.volumeInfo.pageCount,
+    description: book.volumeInfo.description,
+  };
+
   return (
-    <BookCardContainer to={`/book/${book.id}`}>
+    <BookCardContainer to={`/book/${book.id}`} state={{ details: bookDetails }}>
       <PositionImg>
         {imageBook ? (
           <img src={imageBook} alt={book.volumeInfo.title} />
@@ -20,10 +36,21 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
         )}
       </PositionImg>
       <div>
-        <strong>{book.volumeInfo.title}</strong>
-        <h4>{book.volumeInfo.authors}</h4>
-        <h4>{}</h4>
-        <p>{book.volumeInfo.description}</p>
+        {book.volumeInfo.title ? (
+          <strong>{book.volumeInfo.title}</strong>
+        ) : (
+          <strong>Title</strong>
+        )}
+        {book.volumeInfo.authors ? (
+          <h4>{book.volumeInfo.authors}</h4>
+        ) : (
+          <h4>Author</h4>
+        )}
+        {book.volumeInfo.description ? (
+          <p>{book.volumeInfo.description}</p>
+        ) : (
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        )}
       </div>
     </BookCardContainer>
   );

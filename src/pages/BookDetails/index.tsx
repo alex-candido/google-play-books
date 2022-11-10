@@ -1,11 +1,21 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import DetailsContent from './components/DetailsContent';
+import DetailsHeader from './components/DetailsHeader';
 import { BookDetailsContainer } from './styles';
 
 const BookDetails: React.FC = () => {
-  const { id } = useParams();
+  const location = useLocation();
+  const book = location.state.details;
 
-  return <BookDetailsContainer>BookDetails</BookDetailsContainer>;
+  return (
+    <BookDetailsContainer>
+      <div>
+        <DetailsHeader book={book} />
+        <DetailsContent content={book} />
+      </div>
+    </BookDetailsContainer>
+  );
 };
 
 export default BookDetails;
