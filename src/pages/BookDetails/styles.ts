@@ -16,3 +16,30 @@ export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const PositionImg = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    border: 2px solid ${({ theme }) => theme.colors['base-post']};
+    height: 100%;
+    max-width: 150px;
+    &:hover {
+      border-color: ${({ theme }) => theme.colors['brand-blue']};
+    }
+    :disabled {
+      opacity: 0;
+      transform: scale(0);
+    }
+    :hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    transition: all 0.2s;
+  }
+`;
