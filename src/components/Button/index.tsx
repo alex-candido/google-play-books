@@ -8,7 +8,7 @@ interface ButtnProps {
 const Button: React.FC<ButtnProps> = ({ searchBook }) => {
   return (
     <ButtonContainer type="button" onClick={searchBook}>
-      Pesquisar
+      <strong>Pesquisar</strong>
     </ButtonContainer>
   );
 };

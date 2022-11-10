@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
   top: 0;
   width: 100%;
   z-index: 2000;
-  /* border-bottom: 0.5px solid ${({ theme }) => theme.colors['brand-blue']}; */
+  border-bottom: 2px solid ${({ theme }) => theme.colors['base-post']};
 
   form {
     display: flex;

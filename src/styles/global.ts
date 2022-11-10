@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     outline: none;
 
     ::-webkit-scrollbar {
-      width: 0.875rem;
+      width: 0.500rem;
     }
 
     ::-webkit-scrollbar-track {
@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    height: 2000px;
+    height: 100%;
     background: ${({ theme }) => theme.colors['base-background']};
     color: ${({ theme }) => theme.colors['base-text']};
     -webkit-font-smoothing: antialiased;
@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
     font: 500 ${({ theme }) =>
       theme.textSizes['title-title-s']} 'Poppins', sans-serif;
       line-height: 160%;
+      border: none;
   }
 
   ul {
