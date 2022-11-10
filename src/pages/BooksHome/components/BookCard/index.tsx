@@ -13,6 +13,7 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
 
   const bookDetails = {
     id: book.id,
+    searchInfo: book.searchInfo?.textSnippet,
     image: imageBook,
     title: book.volumeInfo.title,
     authors: book.volumeInfo.authors,

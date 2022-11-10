@@ -5,15 +5,10 @@ export const BookDetailsContainer = styled.section`
   margin-bottom: 10rem;
 
   > div {
-    display: flex;
     justify-content: center;
+    max-width: 54rem;
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
   }
-`;
-
-export const DetailsContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 2.5rem 2rem;
-  margin-bottom: 8rem;
 `;

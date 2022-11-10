@@ -3,8 +3,9 @@ import noImg from '../../../../assets/no-image.png';
 import DetailsHeaderItem from '../DetailsHeaderItem';
 import { DetailsHeaderContainer, PositionImg } from './styles';
 
-interface DetailsHeaderProps {
+export interface DetailsHeaderProps {
   id: string;
+  searchInfo: string;
   image: string;
   title: string;
   authors: string;
@@ -16,7 +17,7 @@ interface DetailsHeaderProps {
   description: string;
 }
 
-interface BookDetailsHeaderProps {
+export interface BookDetailsHeaderProps {
   book: DetailsHeaderProps;
 }
 
