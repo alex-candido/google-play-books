@@ -4,30 +4,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import noImg from '../../../../assets/no-image.png';
 import ExternalLink from '../../../../components/ExternalLink';
+import { Volume } from '../../../../contexts/BooksContext';
 import DetailsHeaderItem from '../DetailsHeaderItem';
 import { DetailsHeaderContainer, PositionImg } from './styles';
 
-export interface DetailsHeaderProps {
-  id: string;
-  searchInfo: string;
-  image: string;
-  previewLink: string;
-  title: string;
-  authors: string;
-  publisher: string;
-  categories: string;
-  language: string;
-  publishedDate: string;
-  pageCount: string;
-  description: string;
-}
-
 export interface BookDetailsHeaderProps {
-  book: DetailsHeaderProps;
+  book: Volume;
 }
 
 const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
-  const d = book.publishedDate;
+  const d = book.volumeInfo.publishedDate;
   const [ano] = d.split('-');
   const navigate = useNavigate();
 
@@ -46,38 +32,58 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           variant="iconLeft"
           href=""
         />
-        <ExternalLink text="Preview" href={book.previewLink} target="_blank" />
+        <ExternalLink
+          text="Preview"
+          href={book.volumeInfo.previewLink}
+          target="_blank"
+        />
       </header>
-      {book.title ? <h1>{book.title}</h1> : <h1>Title</h1>}
+      {book.volumeInfo.title ? (
+        <h1>{book.volumeInfo.title}</h1>
+      ) : (
+        <h1>Title</h1>
+      )}
       <div>
         <PositionImg>
-          {book.image ? (
-            <img src={book.image} alt={book.title} />
+          {book.volumeInfo.imageLinks.thumbnail ? (
+            <img
+              src={book.volumeInfo.imageLinks.thumbnail}
+              alt={book.volumeInfo.title}
+            />
           ) : (
-            <img src={noImg} alt={book.title} />
+            <img src={noImg} alt={book.volumeInfo.title} />
           )}
         </PositionImg>
         <div>
-          {book.authors ? (
-            <DetailsHeaderItem detailTitle="Autor" detail={book.authors} />
+          {book.volumeInfo.authors ? (
+            <DetailsHeaderItem
+              detailTitle="Autor"
+              detail={book.volumeInfo.authors}
+            />
           ) : (
             <DetailsHeaderItem detailTitle="Autor" detail="authors" />
           )}
-          {book.publisher ? (
-            <DetailsHeaderItem detailTitle="Editora" detail={book.publisher} />
+          {book.volumeInfo.publisher ? (
+            <DetailsHeaderItem
+              detailTitle="Editora"
+              detail={book.volumeInfo.publisher}
+            />
           ) : (
             <DetailsHeaderItem detailTitle="Editora" detail="publisher" />
           )}
-          {book.categories ? (
+          {book.volumeInfo.categories ? (
             <DetailsHeaderItem
               detailTitle="Categorias"
-              detail={book.categories}
+              detail={book.volumeInfo.categories}
             />
           ) : (
             <DetailsHeaderItem detailTitle="Categorias" detail="categories" />
           )}
-          {book.language ? (
-            <DetailsHeaderItem detailTitle="Idioma" detail={book.language} />
+          {book.volumeInfo.language ? (
+            <DetailsHeaderItem
+              detailTitle="Idioma"
+              detail={book.volumeInfo.language}
+            />
           ) : (
             <DetailsHeaderItem detailTitle="Idioma" detail="language" />
           )}
@@ -86,8 +92,11 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           ) : (
             <DetailsHeaderItem detailTitle="Publicado em" detail="publisher" />
           )}
-          {book.pageCount ? (
-            <DetailsHeaderItem detailTitle="Páginas" detail={book.pageCount} />
+          {book.volumeInfo.pageCount ? (
+            <DetailsHeaderItem
+              detailTitle="Páginas"
+              detail={book.volumeInfo.pageCount}
+            />
           ) : (
             <DetailsHeaderItem detailTitle="Páginas" detail="pageCount" />
           )}

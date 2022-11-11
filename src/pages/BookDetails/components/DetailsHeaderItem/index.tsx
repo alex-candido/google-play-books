@@ -3,7 +3,7 @@ import { HeaderItemContainer } from './styles';
 
 interface DetailsHeaderItemProps {
   detailTitle: string;
-  detail: string;
+  detail: string[] | string | number;
 }
 
 const DetailsHeaderItem: React.FC<DetailsHeaderItemProps> = ({

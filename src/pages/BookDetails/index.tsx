@@ -12,7 +12,7 @@ const BookDetails: React.FC = () => {
     <BookDetailsContainer>
       <div>
         <DetailsHeader book={book} />
-        <DetailsContent content={book} />
+        <DetailsContent book={book} />
       </div>
     </BookDetailsContainer>
   );

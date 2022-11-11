@@ -1,6 +1,7 @@
 import React from 'react';
 import { useBooks } from '../../hooks/useBooks';
 import BookCard from './components/BookCard';
+import NoSearch from './components/NoSearch';
 import { BookListContainer, HomeContainer } from './styles';
 
 const Home: React.FC = () => {
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
           {bookData.map(book => (
             <BookCard book={book} />
           ))}
+          <section>{bookData.length <= 0 && <NoSearch />}</section>
         </BookListContainer>
       </div>
     </HomeContainer>
