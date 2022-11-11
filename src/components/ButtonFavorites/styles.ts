@@ -12,7 +12,6 @@ export const ButtonFavoritesContainer = styled.button`
   gap: 0.5rem;
   font-weight: 700;
   transition: 0.4s;
-  border-bottom: 1px solid transparent;
   height: 19px;
   line-height: 19px;
   flex-direction: row-reverse;
@@ -23,6 +22,7 @@ export const ButtonFavoritesContainer = styled.button`
   }
 
   &:hover {
+    border-bottom: 1px solid transparent;
     border-color: ${({ theme }) => theme.colors['brand-blue']};
   }
 `;

@@ -41,6 +41,7 @@ interface BooksContextType {
   addBookToFavorite: (book: BookItem) => void;
   removeBookItem: (bookItemId: string) => void;
   bookQuatity: number;
+  bookItems: BookItem[];
 }
 
 interface BooksContextProviderProps {
@@ -125,6 +126,7 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
         addBookToFavorite,
         removeBookItem,
         bookQuatity,
+        bookItems,
       }}
     >
       {children}

@@ -8,11 +8,12 @@ const Favorites: React.FC = () => {
   const { bookQuatity } = useBooks();
 
   return (
-    <ButtonContainer type="button">
+    <ButtonContainer to="/favorites">
       {bookQuatity >= 1 && (
-        <span>
-          <FontAwesomeIcon icon={faHeart} /> Favoritos {bookQuatity}
-        </span>
+        <strong>
+          <FontAwesomeIcon icon={faHeart} /> <span>Favoritos</span>{' '}
+          {bookQuatity}
+        </strong>
       )}
     </ButtonContainer>
   );

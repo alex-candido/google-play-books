@@ -4,7 +4,7 @@ import BookCard from './components/BookCard';
 import NoSearch from './components/NoSearch';
 import { BookListContainer, HomeContainer } from './styles';
 
-const Home: React.FC = () => {
+const BookHome: React.FC = () => {
   const { bookData } = useBooks();
 
   return (
@@ -21,4 +21,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default BookHome;
