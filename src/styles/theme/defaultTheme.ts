@@ -12,6 +12,7 @@ export const defaultTheme = {
     'base-title': '#E7EDF4',
     'brand-blue-white': '#11bdff',
     'brand-blue': '#00acee',
+    'brand-red': '#DB0D15',
   },
   textSizes: {
     'title-title-l': '1.5rem',

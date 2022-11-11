@@ -12,6 +12,10 @@ export const ButtonContainer = styled.button`
   transition: background-color 0.2s;
   margin-left: 20px;
   font-size: ${({ theme }) => theme.textSizes['title-title-s']};
+  width: 100%;
+  max-width: 10rem;
+  span {
+  }
 
   &:hover {
     background: ${({ theme }) => theme.colors['brand-blue-white']};

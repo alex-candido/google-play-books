@@ -1,14 +1,13 @@
 import React from 'react';
+import { useBooks } from '../../hooks/useBooks';
 import { ButtonContainer } from './styles';
 
-interface ButtnProps {
-  searchBook: () => void;
-}
+const Button: React.FC = () => {
+  const { bookQuatity } = useBooks();
 
-const Button: React.FC<ButtnProps> = ({ searchBook }) => {
   return (
-    <ButtonContainer type="button" onClick={searchBook}>
-      <strong>Pesquisar</strong>
+    <ButtonContainer type="button">
+      {bookQuatity >= 1 && <span> Favoritos {bookQuatity}</span>}
     </ButtonContainer>
   );
 };

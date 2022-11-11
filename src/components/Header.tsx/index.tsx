@@ -17,7 +17,7 @@ const Header: React.FC = () => {
           setSearch={setSearch}
           // searchBook={searchBook}
         />
-        <Button searchBook={searchBook} />
+        <Button />
       </form>
     </HeaderContainer>
   );

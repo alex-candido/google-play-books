@@ -1,8 +1,9 @@
-import { faChevronLeft, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import noImg from '../../../../assets/no-image.png';
+import ButtonFavorites from '../../../../components/ButtonFavorites';
 import ExternalLink from '../../../../components/ExternalLink';
 import { BookItem } from '../../../../contexts/BooksContext';
 import { useBooks } from '../../../../hooks/useBooks';
@@ -124,13 +125,17 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           )}
         </div>
       </div>
-      <ExternalLink
+      {/* <ExternalLink
         as="button"
         onClick={handleAddToFavorite}
         icon={<FontAwesomeIcon icon={faHeart} />}
         text="Adicionar"
         variant="iconLeft"
         href=""
+      /> */}
+      <ButtonFavorites
+        favoriteColor={changeFavorite}
+        toFavorite={handleAddToFavorite}
       />
     </DetailsHeaderContainer>
   );

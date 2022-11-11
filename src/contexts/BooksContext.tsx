@@ -40,6 +40,7 @@ interface BooksContextType {
   bookData: Volume[];
   addBookToFavorite: (book: BookItem) => void;
   removeBookItem: (bookItemId: string) => void;
+  bookQuatity: number;
 }
 
 interface BooksContextProviderProps {
@@ -61,6 +62,8 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
     }
     return [];
   });
+
+  const bookQuatity = bookItems.length;
 
   async function searchBook() {
     const response = await api.get(
@@ -121,6 +124,7 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
         bookData,
         addBookToFavorite,
         removeBookItem,
+        bookQuatity,
       }}
     >
       {children}
