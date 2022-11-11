@@ -78,6 +78,7 @@ $ npm install
 $ npm run start
 ```
 
-<img src="/src/assets/Krypt-page.png" alt="Krypt">
+<img src="/src/assets/page-home.png" alt="Home">
+<img src="/src/assets/page-details.png" alt="Details">
 
 Feito por Alex Cândido [Linkedin](https://www.linkedin.com/in/alexcndd/)

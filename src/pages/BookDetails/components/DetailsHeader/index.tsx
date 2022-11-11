@@ -125,14 +125,6 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           )}
         </div>
       </div>
-      {/* <ExternalLink
-        as="button"
-        onClick={handleAddToFavorite}
-        icon={<FontAwesomeIcon icon={faHeart} />}
-        text="Adicionar"
-        variant="iconLeft"
-        href=""
-      /> */}
       <ButtonFavorites
         favoriteColor={changeFavorite}
         toFavorite={handleAddToFavorite}
