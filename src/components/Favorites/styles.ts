@@ -4,7 +4,7 @@ export const ButtonContainer = styled.button`
   background: ${({ theme }) => theme.colors['brand-blue']};
   height: 56px;
   border-radius: 10px;
-  padding: 0.75rem 1.5rem;
+  /* padding: 0.75rem 0.5rem; */
   color: ${({ theme }) => theme.colors['base-title']};
   text-align: center;
   font-size: ${({ theme }) => theme.textSizes['title-title-s']};
@@ -13,8 +13,9 @@ export const ButtonContainer = styled.button`
   margin-left: 20px;
   font-size: ${({ theme }) => theme.textSizes['title-title-s']};
   width: 100%;
-  max-width: 10rem;
-  span {
+  max-width: 12rem;
+  svg {
+    padding-right: 5px;
   }
 
   &:hover {

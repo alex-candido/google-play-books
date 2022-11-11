@@ -1,7 +1,7 @@
 import React from 'react';
 import { useBooks } from '../../hooks/useBooks';
 import BookSearchInput from '../BookSearchInput';
-import Button from '../Button';
+import Favorites from '../Favorites';
 import LogoHeader from '../LogoHeader';
 import { HeaderContainer } from './styles';
 
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
           setSearch={setSearch}
           // searchBook={searchBook}
         />
-        <Button />
+        <Favorites />
       </form>
     </HeaderContainer>
   );
