@@ -20,7 +20,7 @@ const ButtonFavorites: React.FC<ButtonFavorites> = ({
         borderColor: `${favoriteColor ? '#F32D35' : '#00acee'}`,
       }}
     >
-      Pesquisar
+      Adicionar
       <FontAwesomeIcon icon={faHeart} />
     </ButtonFavoritesContainer>
   );
