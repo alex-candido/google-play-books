@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DetailsHeaderContainer = styled.div`
-  width: 100%;
+  /* width: 100%; */
   margin-top: -5.5rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -32,6 +32,19 @@ export const DetailsHeaderContainer = styled.div`
     border-color: ${({ theme }) => theme.colors['brand-blue']};
   }
 
+  > div {
+    display: flex;
+    gap: 2rem;
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
   @media (max-width: 688px) {
     > div {
       @media (max-width: 700px) {
@@ -44,31 +57,12 @@ export const DetailsHeaderContainer = styled.div`
       }
     }
   }
-
-  > div {
-    display: flex;
-    gap: 2rem;
-
-    > div {
-      display: flex;
-      column-gap: 1rem;
-      flex-wrap: wrap;
-      max-width: 30rem;
-    }
-  }
-
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
 `;
 
 export const PositionImg = styled.div`
   display: flex;
   align-items: start;
+  justify-content: start;
 
   img {
     height: 230px;
@@ -91,4 +85,10 @@ export const PositionImg = styled.div`
     }
     transition: all 0.2s;
   }
+`;
+
+export const PositionContent = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 `;

@@ -8,7 +8,7 @@ import ExternalLink from '../../../../components/ExternalLink';
 import { BookItem } from '../../../../contexts/BooksContext';
 import { useBooks } from '../../../../hooks/useBooks';
 import DetailsHeaderItem from '../DetailsHeaderItem';
-import { DetailsHeaderContainer, PositionImg } from './styles';
+import { DetailsHeaderContainer, PositionContent, PositionImg } from './styles';
 
 export interface BookDetailsHeaderProps {
   book: BookItem;
@@ -19,7 +19,7 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
   const [ano] = d.split('-');
   const navigate = useNavigate();
   const { addBookToFavorite, removeBookItem } = useBooks();
-  const [quantity, setQuantity] = React.useState(1);
+  const [quantity] = React.useState(1);
   const [changeFavorite, setChangeFavorite] = React.useState(false);
 
   function handleBookFavorite() {
@@ -77,7 +77,7 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
             <img src={noImg} alt={book.volumeInfo.title} />
           )}
         </PositionImg>
-        <div>
+        <PositionContent>
           {book.volumeInfo.authors ? (
             <DetailsHeaderItem
               detailTitle="Autor"
@@ -123,7 +123,7 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           ) : (
             <DetailsHeaderItem detailTitle="Páginas" detail="pageCount" />
           )}
-        </div>
+        </PositionContent>
       </div>
       <ButtonFavorites
         favoriteColor={changeFavorite}
