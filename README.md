@@ -2,7 +2,7 @@
 
 # Play Books - Google Books API
 
-Play Books é uma aplicação Web de plataforma de Livros, onde por meio da API Google Books é possível buscar livros, dados detalhados e exibi-los. Tendo como funcionalidades, conectar a aplicação na API, emparelhar requisições, listar e filtrar todos os items em um pequeno resumo do conteúdo, criando uma página Home com posts/Livros, e por meio de Links acessar uma página com os dados completos, além disso tendo como aplicabilidade salvar esses posts/Livros em uma terceira página.
+Play Books é uma aplicação Web de plataforma de Livros, onde por meio da API Google Books é possível buscar livros, dados detalhados e exibi-los. Tendo como funcionalidades, conectar a aplicação na API, emparelhar requisições, listar e filtrar todos os items em um pequeno resumo do conteúdo, criando uma página Home com posts/Livros, e por meio de Links acessar uma página com os dados completos, além disso, tendo como aplicabilidade salvar esses posts/Livros em uma terceira página.
 
 Abordagens como padronização de projetos React, Typescript, Styled Components, Componetização, React Router, Local Storage, React Router Dom, React Hook, Context API, Axios, API do Google Books, além de Ferramentas de boas práticas como ESLint, Prettier e EditorConfig. Acesse [Play Books](https://github.com/alex-candido/krypt-web-3.0-blockchain-application-smart-contract).
 
