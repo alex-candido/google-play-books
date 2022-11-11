@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 import React, { Dispatch, FormEvent, ReactNode, useState } from 'react';
 import { api } from '../services/api';
 
@@ -25,6 +26,10 @@ export interface Volume {
   volumeInfo: IBooks;
 }
 
+export interface BookItem extends Volume {
+  quantity: number;
+}
+
 const PLAY_BOOKS_STORAGE_KEY = 'playBooks:bookItems';
 
 interface BooksContextType {
@@ -33,6 +38,8 @@ interface BooksContextType {
   setSearch: Dispatch<React.SetStateAction<string>>;
   handleSearchBook: (event: FormEvent<HTMLFormElement>) => void;
   bookData: Volume[];
+  addBookToFavorite: (book: BookItem) => void;
+  removeBookItem: (bookItemId: string) => void;
 }
 
 interface BooksContextProviderProps {
@@ -45,14 +52,15 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
   children,
 }) => {
   const [search, setSearch] = useState('');
-  // const [bookItems, setBookItems] = useState<BookItem[]>(() => {
-  //   const storedBookItems = localStorage.getItem(PLAY_BOOKS_STORAGE_KEY);
-  //   if (storedBookItems) {
-  //     return JSON.parse(storedBookItems);
-  //   }
-  //   return [];
-  // });
   const [bookData, setBookData] = useState([]);
+
+  const [bookItems, setBookItems] = useState<BookItem[]>(() => {
+    const storedBookItems = localStorage.getItem(PLAY_BOOKS_STORAGE_KEY);
+    if (storedBookItems) {
+      return JSON.parse(storedBookItems);
+    }
+    return [];
+  });
 
   async function searchBook() {
     const response = await api.get(
@@ -62,20 +70,58 @@ export const BooksContextProvider: React.FC<BooksContextProviderProps> = ({
     setBookData(response.data.items);
   }
 
-  console.log(bookData);
-
   function handleSearchBook(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     searchBook();
   }
 
-  // useEffect(() => {
-  //   localStorage.setItem(PLAY_BOOKS_STORAGE_KEY, JSON.stringify(booksItems))
-  // }, [bookItems]);
+  function addBookToFavorite(book: BookItem): void {
+    const bookAlreadyExistsInFavorite = bookItems.findIndex(
+      bookItem => bookItem.id === book.id,
+    );
+
+    const newBook = produce(bookItems, draft => {
+      const draftBookItems = draft;
+      if (bookAlreadyExistsInFavorite < 0) {
+        draftBookItems.push(book);
+      } else {
+        draftBookItems[bookAlreadyExistsInFavorite].quantity += book.quantity;
+      }
+    });
+
+    setBookItems(newBook);
+  }
+
+  function removeBookItem(bookItemId: string): void {
+    const newBook = produce(bookItems, draft => {
+      const draftBookItems = draft;
+      const bookExistsInItems = bookItems.findIndex(
+        bookItem => bookItem.id === bookItemId,
+      );
+
+      if (bookExistsInItems >= 0) {
+        draftBookItems.splice(bookExistsInItems, 1);
+      }
+    });
+
+    setBookItems(newBook);
+  }
+
+  React.useEffect(() => {
+    localStorage.setItem(PLAY_BOOKS_STORAGE_KEY, JSON.stringify(bookItems));
+  }, [bookItems]);
 
   return (
     <BooksContext.Provider
-      value={{ searchBook, search, setSearch, handleSearchBook, bookData }}
+      value={{
+        searchBook,
+        search,
+        setSearch,
+        handleSearchBook,
+        bookData,
+        addBookToFavorite,
+        removeBookItem,
+      }}
     >
       {children}
     </BooksContext.Provider>

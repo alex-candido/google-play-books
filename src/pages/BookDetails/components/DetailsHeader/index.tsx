@@ -1,24 +1,46 @@
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import noImg from '../../../../assets/no-image.png';
 import ExternalLink from '../../../../components/ExternalLink';
-import { Volume } from '../../../../contexts/BooksContext';
+import { BookItem } from '../../../../contexts/BooksContext';
+import { useBooks } from '../../../../hooks/useBooks';
 import DetailsHeaderItem from '../DetailsHeaderItem';
 import { DetailsHeaderContainer, PositionImg } from './styles';
 
 export interface BookDetailsHeaderProps {
-  book: Volume;
+  book: BookItem;
 }
 
 const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
   const d = book.volumeInfo.publishedDate;
   const [ano] = d.split('-');
   const navigate = useNavigate();
+  const { addBookToFavorite, removeBookItem } = useBooks();
+  const [quantity, setQuantity] = React.useState(1);
+  const [changeFavorite, setChangeFavorite] = React.useState(false);
+
+  function handleBookFavorite() {
+    if (changeFavorite === true) {
+      const bookToAdd = {
+        ...book,
+        quantity,
+      };
+      addBookToFavorite(bookToAdd);
+    }
+    if (changeFavorite === false) {
+      removeBookItem(book.id);
+    }
+  }
 
   function goBack() {
     navigate('/');
+  }
+
+  function handleAddToFavorite() {
+    handleBookFavorite();
+    setChangeFavorite(!changeFavorite);
   }
 
   return (
@@ -102,6 +124,14 @@ const DetailsHeader: React.FC<BookDetailsHeaderProps> = ({ book }) => {
           )}
         </div>
       </div>
+      <ExternalLink
+        as="button"
+        onClick={handleAddToFavorite}
+        icon={<FontAwesomeIcon icon={faHeart} />}
+        text="Adicionar"
+        variant="iconLeft"
+        href=""
+      />
     </DetailsHeaderContainer>
   );
 };

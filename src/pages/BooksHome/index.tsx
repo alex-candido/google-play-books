@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       <div className="container">
         <BookListContainer>
           {bookData.map(book => (
-            <BookCard book={book} />
+            <BookCard key={book.id} book={book} />
           ))}
           <section>{bookData.length <= 0 && <NoSearch />}</section>
         </BookListContainer>
