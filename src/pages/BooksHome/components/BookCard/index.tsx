@@ -13,17 +13,24 @@ const BookCard: React.FC<IBooksProps> = ({ book }) => {
 
   const bookDetails = {
     id: book.id,
-    searchInfo: book.searchInfo?.textSnippet,
-    image: imageBook,
-    previewLink: book.volumeInfo.previewLink,
-    title: book.volumeInfo.title,
-    authors: book.volumeInfo.authors,
-    publisher: book.volumeInfo.publisher,
-    categories: book.volumeInfo.categories,
-    language: book.volumeInfo.language,
-    publishedDate: book.volumeInfo.publishedDate,
-    pageCount: book.volumeInfo.pageCount,
-    description: book.volumeInfo.description,
+    searchInfo: {
+      textSnippet: book.searchInfo?.textSnippet,
+    },
+    volumeInfo: {
+      imageLinks: {
+        thumbnail: imageBook,
+        smallThumbnail: imageBook,
+      },
+      previewLink: book.volumeInfo.previewLink,
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      publisher: book.volumeInfo.publisher,
+      categories: book.volumeInfo.categories,
+      language: book.volumeInfo.language,
+      publishedDate: book.volumeInfo.publishedDate,
+      pageCount: book.volumeInfo.pageCount,
+      description: book.volumeInfo.description,
+    },
   };
 
   return (

@@ -1,16 +1,16 @@
 import React from 'react';
-import { DetailsHeaderProps } from '../DetailsHeader';
+import { Volume } from '../../../../contexts/BooksContext';
 import { DetailsContentContainer } from './styles';
 
 export interface DetailsContentProps {
-  content: DetailsHeaderProps;
+  book: Volume;
 }
 
-const DetailsContent: React.FC<DetailsContentProps> = ({ content }) => {
+const DetailsContent: React.FC<DetailsContentProps> = ({ book }) => {
   return (
     <DetailsContentContainer>
-      <strong>{content.searchInfo}</strong>
-      <p>{content.description}</p>
+      <strong>{book.searchInfo?.textSnippet}</strong>
+      <p>{book.volumeInfo.description}</p>
     </DetailsContentContainer>
   );
 };
